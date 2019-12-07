@@ -14,4 +14,4 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
     - name: Xcode Version
-      run: ls /Applications | grep Xcode | xargs -I {} sh -c 'echo {}; /usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" /Applications/{}/Contents/version.plist; /usr/libexec/PlistBuddy -c "Print CFBundleVersion" /Applications/{}/Contents/version.plist'
+      run: ls /Applications | grep Xcode | xargs -I {} sh -c 'echo {}; /usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" /Applications/{}/Contents/Info.plist; /usr/libexec/PlistBuddy -c "Print CFBundleVersion" /Applications/{}/Contents/Info.plist'
