@@ -1,6 +1,9 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+    - master
 
 jobs:
   build:
@@ -10,5 +13,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - name: Testing....
-      run: ls /Applications | grep Xcode
+    - name: Xcode Version
+      run: ls /Applications | grep Xcode 
+      run: ls /Applications | grep Xcode | xargs -I {} /usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" /Applications/{}/Contents/Info.plist
